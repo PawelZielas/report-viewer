@@ -1,0 +1,39 @@
+@import "../../assets/scss/base/variables";
+@import "../../assets/scss/base/mixins";
+
+.select__container {
+  position: relative;
+  margin-right: 40px;
+  @include inputShadow();
+
+  select {
+    padding: 20px 30px;
+    font-size: 14px;
+    color: $fontColorPrimary;
+    background: $whiteBg;
+    box-shadow: none;
+    border: none;
+    outline: none;
+  }
+
+  option {
+    padding: 10px 20px;
+    height: 2rem;
+  }
+
+  .custom-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    @include flxCenter();
+    pointer-events: none;
+    background-color: $whiteBg;
+  }
+}
+
+fa-icon {
+  color: $linkCol;
+}
+

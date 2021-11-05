@@ -1,0 +1,11 @@
+@import "variables";
+
+@mixin  flxCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin inputShadow($blur: 10px) {
+  box-shadow: 0 0 $blur 0 $primaryGrayCol;
+}

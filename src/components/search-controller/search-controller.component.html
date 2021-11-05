@@ -1,1 +1,35 @@
-<p>search-controller works!</p>
+<div class="search-controller__container">
+  <div class="inputs-container">
+    <div class="date-input">
+      <mat-form-field>
+        <mat-select
+          placeholder="{{searchCriteria?.dates?.length !== 0 ? searchCriteria?.placeholder : ''}}"
+          (selectionChange)="updateDate($event)"
+        >
+          <mat-option *ngFor="let date of searchCriteria?.dates" [value]="date">
+            {{date}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="search-input">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <input matInput placeholder="{{searchCriteria?.placeholder}}" value="{{searchCriteria?.phrase}}">
+      </mat-form-field>
+      <button class="search-btn">Wyszukaj</button>
+    </div>
+  </div>
+  <div>
+
+    <div class="tags-container" *ngIf="searchCriteria?.tags else tagsEmpty">
+      <div *ngFor="let tag of searchCriteria.tags">
+        <efi-tag [tag]="tag" (tagStateChange)="updateSelectedTags($event)"></efi-tag>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #tagsEmpty>
+    <div class="empty-tag-message">
+      <p>No tags provided.</p>
+    </div>
+  </ng-template>

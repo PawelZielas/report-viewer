@@ -1,11 +1,14 @@
 @import '~normalize.css';
-@import './assets/scss/base/variables';
+@import 'assets/scss/base/variables';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Calibri, Monospaced, sans-serif;
-  background-color: $bodyBg;
-  color: $fontPrimary;
+  font-family: Roboto, Monospaced, sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px $whiteBg inset !important;
 }

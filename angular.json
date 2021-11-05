@@ -29,9 +29,12 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/assets/scss"
+              "src/assets/scss",
+              { "glob": "package.json", "input": "../", "output": "./assets/" },
+              { "glob": "data.json", "input": "./", "output": "./assets/" }
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -100,6 +103,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
