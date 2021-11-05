@@ -1,8 +1,11 @@
 <div class="reports__container">
   <section class="search">
-    <efi-search-controller></efi-search-controller>
+    <efi-search-controller
+      [searchCriteria]="criteria"
+      (criteriaChange)="updateReportList($event)"
+    ></efi-search-controller>
   </section>
-<section>
-  <efi-reports-list></efi-reports-list>
-</section>
+  <section>
+    <efi-reports-list></efi-reports-list>
+  </section>
 </div>

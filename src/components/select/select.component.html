@@ -1,0 +1,9 @@
+<div class="select__container">
+  <label for="date"></label>
+  <select name="date" id="date">
+    <option *ngFor="let date of availableDates">{{date}}</option>
+  </select>
+  <span class="custom-arrow">
+    <fa-icon [icon]="chevronDown"></fa-icon>
+  </span>
+</div>

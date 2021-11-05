@@ -1,0 +1,6 @@
+<div class="tag__container" [ngClass]="tag.status ? 'active' : 'inactive'" (click)="setFilterActive($event)">
+  <p>{{tag.name}}</p>
+  <span *ngIf="tag.status" title="{{tag}}" (click)="setFilterInactive($event)">
+    <fa-icon [icon]="closeIcon"></fa-icon>
+  </span>
+</div>
