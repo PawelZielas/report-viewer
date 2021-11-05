@@ -73,4 +73,7 @@ export class SearchControllerComponent implements OnInit, OnChanges {
     this.searchCriteria = {...this.searchCriteria, selectedDateIndex: this.searchCriteria.dates.indexOf(date.value)};
   }
 
+  updateSearchPhrase(): void {
+  }
+
 }

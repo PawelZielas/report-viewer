@@ -6,18 +6,11 @@
   flex-direction: column;
   align-items: center;
   background: #F2F2F2;
-
-  //.content__container {
-  //  width: min(1200px, 70%);
-  //}
+  .content__container {
+    width: 70%;
+  }
 }
 
-@media (max-width: 900px) {
-  //.content__container {
-  //  width: 100vw;
-  //  margin: 0 5%;
-  //}
-}
 
 @media (orientation: portrait) {
 

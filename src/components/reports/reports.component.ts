@@ -60,7 +60,7 @@ export class ReportsComponent implements OnInit, OnDestroy {
     });
     dates.sort(function (a, b) {
       return a - b;
-    });
+    }).reverse();
 
       this.criteria = {
         selectedDateIndex: 0,

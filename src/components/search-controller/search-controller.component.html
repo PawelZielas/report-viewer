@@ -3,24 +3,28 @@
     <div class="date-input">
       <mat-form-field>
         <mat-select
-          placeholder="{{searchCriteria?.dates?.length !== 0 ? searchCriteria?.placeholder : ''}}"
           (selectionChange)="updateDate($event)"
+          panelClass="select-option__overlay"
+          defaultTabIndex="0"
+          [(value)]="searchCriteria.dates[searchCriteria.selectedDateIndex]"
         >
-          <mat-option *ngFor="let date of searchCriteria?.dates" [value]="date">
-            {{date}}
-          </mat-option>
+          <ng-container
+            *ngFor="let date of searchCriteria?.dates">
+            <mat-option [value]="date">
+              {{date}}
+            </mat-option>
+          </ng-container>
         </mat-select>
       </mat-form-field>
     </div>
     <div class="search-input">
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field appearance="fill">
         <input matInput placeholder="{{searchCriteria?.placeholder}}" value="{{searchCriteria?.phrase}}">
       </mat-form-field>
-      <button class="search-btn">Wyszukaj</button>
+      <button class="search-btn" (click)="updateSearchPhrase()">Wyszukaj</button>
     </div>
   </div>
   <div>
-
     <div class="tags-container" *ngIf="searchCriteria?.tags else tagsEmpty">
       <div *ngFor="let tag of searchCriteria.tags">
         <efi-tag [tag]="tag" (tagStateChange)="updateSelectedTags($event)"></efi-tag>

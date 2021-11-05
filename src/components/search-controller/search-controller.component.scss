@@ -3,13 +3,14 @@
 .search-controller__container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 35px 35px 40px 40px;
+  padding: 35px 45px 40px 50px;
   background: $whiteBg;
+  gap: 20px;
 
   .inputs-container {
     display: flex;
     align-items: center;
+    gap: 10px;
 
     .date-input {
       margin-right: 30px;
@@ -18,13 +19,19 @@
     .search-input, .mat-form-field {
       width: 100%;
       position: relative;
+    }
+
+    .search-input {
+      min-width: 380px;
 
       .search-btn {
         border-radius: 40px;
         min-width: 120px;
         position: absolute;
-        padding: 10px;
-        right: 0;
+        padding: 8px;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
         background: $btnBg;
         color: $fontColorSecondary;
         border: none;
@@ -45,21 +52,18 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5px;
+    margin-top: 10px;
   }
 
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px $whiteBg inset !important;
-}
-
 :host::ng-deep {
-
   .mat-form-field-appearance-fill .mat-form-field-flex {
     padding: 0;
+  }
+
+  mat-form-field {
+    box-shadow: 0 0 10px 0 rgb(195, 195, 195);
   }
 
   .mat-form-field-infix {
@@ -70,4 +74,49 @@ input:-webkit-autofill:active {
   .mat-form-field-wrapper {
     padding: 0;
   }
+
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 2px;
+  }
+
+  .mat-form-field-underline {
+    position: absolute;
+    bottom: 0;
+  }
 }
+
+::ng-deep .mat-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin: 0 4px;
+}
+
+::ng-deep .select-option__overlay.mat-select-panel {
+  transform: translate(8px, 44px) !important;
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .search-controller__container {
+    width: 100vw;
+    padding: 0 20px;
+
+    div.tags-container {
+      display: grid;
+      grid-auto-flow: row;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+}
+@media screen and (max-width: 800px) {
+
+  .inputs-container {
+    flex-wrap: wrap;
+  }
+}
+
