@@ -5,6 +5,7 @@ import {SearchCriteria} from "../search-controller/search.model";
 import {takeUntil} from "rxjs/operators";
 import {Subject} from "rxjs";
 import {TagStatus} from "../tag/tag.model";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'efi-reports',
@@ -27,17 +28,24 @@ export class ReportsComponent implements OnInit, OnDestroy {
     this.reportsService.fetchReports()
       .pipe(
         takeUntil(this.onDestroy$)
-      ).subscribe((reportsData) => {
+      ).subscribe((reportsData: HttpResponse<ReportsData[]>) => {
         this.createFilterCriteria(reportsData.body);
         this.reportData = reportsData.body;
       },
-      (error => {
-          console.error(error);
-          // display proper error message and provide stub value.
+      (error: HttpErrorResponse) => {
+        switch (error.status) {
+          case 400:
+            console.error('Invalid request');
+            break;
+          case 500:
+            console.error('Internal server error');
+            break;
+          default:
+            console.error('Unnown error occured.')
         }
-      ));
-  }
-
+      }
+    );
+}
   createFilterCriteria(reportsData: ReportsData[] | null): void {
     const dates: number[] = [];
     const categories: TagStatus[] = [

@@ -1,4 +1,4 @@
-@import '../../assets/scss/base/variables';
+@import 'variables';
 
 .search-controller__container {
   display: flex;
@@ -22,7 +22,6 @@
     }
 
     .search-input {
-      min-width: 380px;
 
       .search-btn {
         border-radius: 40px;
@@ -34,7 +33,13 @@
         transform: translateY(-50%);
         background: $btnBg;
         color: $fontColorSecondary;
+        cursor: pointer;
         border: none;
+        transition: all 0.25s;
+      }
+
+      .search-btn:hover {
+        box-shadow: $defaultHoverShadow;
       }
     }
   }
@@ -64,6 +69,12 @@
 
   mat-form-field {
     box-shadow: 0 0 10px 0 rgb(195, 195, 195);
+
+    input {
+      width: 60%;
+      text-overflow: ellipsis;
+      overflow-y: hidden;
+    }
   }
 
   .mat-form-field-infix {
@@ -102,18 +113,24 @@
 @media screen and (max-width: 500px) {
 
   .search-controller__container {
-    width: 100vw;
+    width: 100%;
     padding: 0 20px;
-
-    div.tags-container {
-      display: grid;
-      grid-auto-flow: row;
-      grid-template-columns: 1fr 1fr;
-    }
   }
-
 }
+
+@media screen and (width < 600px) {
+  .inputs-container > .date-input {
+    width: 100%;
+    margin-right: 0 !important;
+  }
+}
+
 @media screen and (max-width: 800px) {
+  div.tags-container {
+    display: grid !important;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+  }
 
   .inputs-container {
     flex-wrap: wrap;
