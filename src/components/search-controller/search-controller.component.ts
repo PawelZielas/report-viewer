@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatSelectChange} from "@angular/material/select";
 import {SearchCriteria} from "./search.model";
 import {TagStatus} from "../tag/tag.model";

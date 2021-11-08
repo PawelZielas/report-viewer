@@ -11,7 +11,6 @@ import {TagStatus} from "./tag.model";
 export class TagComponent {
 
   closeIcon = faTimes;
-  //@ts-ignore
   @Input() tag: TagStatus;
   @Output() tagStateChange: EventEmitter<TagStatus> = new EventEmitter<TagStatus>();
 

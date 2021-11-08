@@ -56,7 +56,6 @@ export class ReportsComponent implements OnInit, OnDestroy {
     ];
     reportsData?.forEach((report) => {
       const dateYear = new Date(report.date).getFullYear();
-      const category = report.category;
       if (!dates.includes(dateYear)) {
         dates.push(dateYear)
       }
