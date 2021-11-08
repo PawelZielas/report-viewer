@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ReportsData} from "../../services/reports.dto";
 
 @Component({
   selector: 'efi-reports-item',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportsItemComponent implements OnInit {
 
-  constructor() { }
+
+  @Input() reportItem: ReportsData;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+
   }
 
 }

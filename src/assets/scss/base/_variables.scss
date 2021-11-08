@@ -1,26 +1,17 @@
-// fonts
-$fontColorPrimary: #242424;
-$fontColorSecondary: #ffffff;
-
-$listItemHeaderCol: #0a0a0a;
-$linkCol: #64c1d3;
-$primaryGrayCol: #9c9c9c;
-
+@import "colors";
 // filters
-$filterActiveBorderColor: #64c1d326;
-$filterInactiveBorderColor: #cacaca;
 
 $filterBorderActive: 1px solid $filterActiveBorderColor;
 $filterBorderInactive: 1px solid $filterInactiveBorderColor;
 
-$filterActiveBg: rgba(215, 255, 249, 0.42);
-$filterInactiveBg: #FFFFFF;
+// common
 
-// backgrounds
-$bodyBg: #f2f2f2;
-$whiteBg: #ffffff;
-$btnBg: #64c1d3;
-
-// others
-$underline: #000000;
 $defaultHoverShadow: 0 0 5px rgb(195, 195, 195);
+
+// general
+
+$appMaxWidth: 65%;
+
+// list item
+
+$reportListItemSeparator:  1px solid $primaryGrayCol;

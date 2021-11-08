@@ -1,3 +1,4 @@
+@import 'colors';
 @import 'variables';
 
 .search-controller__container {
@@ -105,12 +106,7 @@
   margin: 0 4px;
 }
 
-::ng-deep .select-option__overlay.mat-select-panel {
-  transform: translate(8px, 44px) !important;
-}
-
-
-@media screen and (max-width: 500px) {
+@media (width < 500px) {
 
   .search-controller__container {
     width: 100%;
@@ -118,14 +114,14 @@
   }
 }
 
-@media screen and (width < 600px) {
+@media (width < 600px) {
   .inputs-container > .date-input {
     width: 100%;
     margin-right: 0 !important;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media (width < 800px) {
   div.tags-container {
     display: grid !important;
     grid-auto-flow: row;

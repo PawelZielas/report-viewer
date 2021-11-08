@@ -1,1 +1,23 @@
-<p>reports-item works!</p>
+<div class="item__cotnainer">
+  <div class="item-index__element">
+    <span class="item-index__date">
+    <p class="item-index__date__date-fragment">{{reportItem.date | date: 'dd.MM.YYYY'}}</p>
+    <p class="item-index__date__time-fragment">{{reportItem.date | date: 'HH:MM'}}</p>
+    </span>
+    <span class="item-index__category">
+    <p>{{reportItem.category}}</p>
+    </span>
+  </div>
+  <div class="item-value">
+    <h2>{{reportItem.title}}</h2>
+    <p>{{reportItem.description}}</p>
+    <div class="item-value__actions" *ngIf="reportItem.files?.length !== 0">
+      <div class="item-value__action__view-details">
+        <p class="link">Zobacz raport</p>
+      </div>
+      <div class="test">
+        <efi-accordion [items]="reportItem.files"></efi-accordion>
+      </div>
+    </div>
+  </div>
+</div>

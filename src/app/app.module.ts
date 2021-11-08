@@ -16,6 +16,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {OverlayModule} from "@angular/cdk/overlay";
 import {MatInputModule} from "@angular/material/input";
 import {HttpClientModule} from "@angular/common/http";
+import { AccordionComponent } from '../components/accordion/accordion.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import {HttpClientModule} from "@angular/common/http";
     ReportsComponent,
     TagComponent,
     SelectComponent,
+    AccordionComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -38,6 +41,7 @@ import {HttpClientModule} from "@angular/common/http";
     MatInputModule,
     OverlayModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

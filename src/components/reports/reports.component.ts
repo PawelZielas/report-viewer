@@ -1,11 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ReportsService} from "../../services/reports.service";
-import {ReportsData} from "../../services/reports.dto";
-import {SearchCriteria} from "../search-controller/search.model";
 import {takeUntil} from "rxjs/operators";
 import {Subject} from "rxjs";
-import {TagStatus} from "../tag/tag.model";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {TagStatus} from "../tag/tag.model";
+import {SearchCriteria} from "../search-controller/search.model";
+import {ReportsData} from "../../services/reports.dto";
 
 @Component({
   selector: 'efi-reports',
@@ -14,8 +14,7 @@ import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 })
 export class ReportsComponent implements OnInit, OnDestroy {
 
-  reportData!: ReportsData[] | null;
-  //@ts-ignore
+  reportsList: ReportsData[];
   criteria: SearchCriteria;
   onDestroy$: Subject<null> = new Subject<null>();
 
@@ -30,7 +29,7 @@ export class ReportsComponent implements OnInit, OnDestroy {
         takeUntil(this.onDestroy$)
       ).subscribe((reportsData: HttpResponse<ReportsData[]>) => {
         this.createFilterCriteria(reportsData.body);
-        this.reportData = reportsData.body;
+        this.reportsList = this.reportsService.filterReports(reportsData.body, this.criteria);
       },
       (error: HttpErrorResponse) => {
         switch (error.status) {
@@ -45,7 +44,8 @@ export class ReportsComponent implements OnInit, OnDestroy {
         }
       }
     );
-}
+  }
+
   createFilterCriteria(reportsData: ReportsData[] | null): void {
     const dates: number[] = [];
     const categories: TagStatus[] = [
@@ -70,17 +70,23 @@ export class ReportsComponent implements OnInit, OnDestroy {
       return a - b;
     }).reverse();
 
-      this.criteria = {
-        selectedDateIndex: 0,
-        dates,
-        tags: categories,
-        phrase: '',
-        placeholder: 'Podaj nazwę lub numer raportu',
-      }
+    this.criteria = {
+      selectedDateIndex: 0,
+      dates,
+      tags: categories,
+      phrase: '',
+      placeholder: 'Podaj nazwę lub numer raportu',
+    }
   }
 
   updateReportList(updatedCriteria: SearchCriteria): void {
-    console.log("UPDATED", updatedCriteria);
+    this.criteria = updatedCriteria;
+    this.reportsService.fetchReports()
+      .pipe(
+        takeUntil(this.onDestroy$)
+      ).subscribe((reportsData: HttpResponse<ReportsData[]>) => {
+      this.reportsList = this.reportsService.filterReports(reportsData.body, this.criteria);
+    });
   }
 
   ngOnDestroy(): void {

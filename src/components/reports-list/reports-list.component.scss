@@ -1,0 +1,17 @@
+@import "colors";
+@import "variables";
+
+.reports-list__container {
+  background: $whiteBg;
+  li {
+    list-style: none;
+  }
+}
+
+:host::ng-deep {
+  li:last-child {
+    .item__cotnainer {
+        border-bottom: none;
+    }
+  }
+}

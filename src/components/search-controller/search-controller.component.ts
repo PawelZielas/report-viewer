@@ -1,44 +1,23 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {MatSelectChange} from "@angular/material/select";
 import {SearchCriteria} from "./search.model";
 import {TagStatus} from "../tag/tag.model";
-import {MatSelectChange} from "@angular/material/select";
 
 @Component({
   selector: 'efi-search-controller',
   templateUrl: './search-controller.component.html',
   styleUrls: ['./search-controller.component.scss']
 })
-export class SearchControllerComponent implements OnInit, OnChanges {
+export class SearchControllerComponent {
 
-  initCriteria = {
-    selectedDateIndex: 0,
-    dates: [],
-    phrase: '',
-    placeholder: 'Wpisz tekst aby przeszukać liste',
-    tags: [{name: 'test', status: false}]
-  };
-
-  test: { dupa: TagStatus[] } = {
-    dupa: [
-      {name: 'test', status: false},
-      {name: 'test2', status: true}
-    ]
-  };
-  @Input() searchCriteria: SearchCriteria = this.initCriteria;
+  @Input() searchCriteria: SearchCriteria;
   @Output() criteriaChange: EventEmitter<SearchCriteria> = new EventEmitter();
 
   constructor() {
   }
 
-  ngOnInit(): void {
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-  }
-
-  // TAGS
   updateSelectedTags(updatedTag: TagStatus): void {
-    const index = this.searchCriteria.tags.findIndex((tag) => {
+    const index = this.searchCriteria.tags.findIndex((tag: TagStatus) => {
       return tag.name === updatedTag.name
     });
     if (index === 0 && updatedTag.status) {
@@ -50,6 +29,7 @@ export class SearchControllerComponent implements OnInit, OnChanges {
         this.checkIfAnySelected();
       }
     }
+    this.search();
   }
 
   resetTags(): void {
@@ -67,13 +47,13 @@ export class SearchControllerComponent implements OnInit, OnChanges {
     }
   }
 
-  // TAGS
-
   updateDate(date: MatSelectChange): void {
     this.searchCriteria = {...this.searchCriteria, selectedDateIndex: this.searchCriteria.dates.indexOf(date.value)};
+    this.search();
   }
 
-  updateSearchPhrase(): void {
+  search(): void {
+    this.criteriaChange.emit(this.searchCriteria);
   }
 
 }

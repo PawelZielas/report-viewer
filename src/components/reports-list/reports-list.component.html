@@ -1,7 +1,7 @@
 <div class="reports-list__container">
    <ul>
-     <li>
-       <efi-reports-item></efi-reports-item>
+     <li *ngFor="let report of reportsList">
+       <efi-reports-item [reportItem]="report"></efi-reports-item>
      </li>
    </ul>
 </div>

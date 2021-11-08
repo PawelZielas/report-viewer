@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ReportsData} from "../../services/reports.dto";
 
 @Component({
   selector: 'efi-reports-list',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reports-list.component.scss']
 })
 export class ReportsListComponent implements OnInit {
-
+  @Input() reportsList: ReportsData[];
   constructor() { }
 
   ngOnInit(): void {
