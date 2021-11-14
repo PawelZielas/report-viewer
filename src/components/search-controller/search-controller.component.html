@@ -14,12 +14,11 @@
       </mat-form-field>
     </div>
     <div class="search-input">
-      <mat-form-field appearance="fill">
-        <input
-          matInput
-          placeholder="{{searchCriteria?.placeholder}}"
-          [(ngModel)]="searchCriteria.phrase">
-      </mat-form-field>
+      <input
+        class="search"
+        type="text"
+        value="{{searchCriteria.phrase}}"
+        placeholder="{{searchCriteria.placeholder}}">
       <button class="search-btn" (click)="search()">Wyszukaj</button>
     </div>
   </div>
