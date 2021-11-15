@@ -1,25 +1,18 @@
 <div class="search-controller__container">
   <div class="inputs-container">
     <div class="date-input">
-      <mat-form-field>
-        <mat-select
-          (selectionChange)="updateDate($event)"
-          panelClass="select-option__overlay"
-          [value]="searchCriteria.dates[searchCriteria.selectedDateIndex]"
-        >
-          <mat-option *ngFor="let date of searchCriteria?.dates" [value]="date">
-            {{date}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <efi-select
+        [availableItems]="searchCriteria?.dates"
+        (selected)="updateDate($event)"
+      ></efi-select>
     </div>
-    <div class="search-input">
+    <div class="text-input__container">
       <input
-        class="search"
+        class="text-input"
         type="text"
-        value="{{searchCriteria.phrase}}"
-        placeholder="{{searchCriteria.placeholder}}">
-      <button class="search-btn" (click)="search()">Wyszukaj</button>
+        placeholder="Podaj nazwę lub numer raportu">
+<!--      <button class="primary-btn" (click)="search()">Wyszukaj</button>-->
+      <span class="input__underline"></span>
     </div>
   </div>
   <div>

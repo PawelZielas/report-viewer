@@ -5,43 +5,25 @@
   display: flex;
   flex-direction: column;
   padding: 35px 45px 40px 50px;
-  background: $whiteBg;
+  background: $white_1;
   gap: 20px;
 
   .inputs-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 20px;
 
     .date-input {
       margin-right: 30px;
     }
 
-    .search-input, .mat-form-field {
+    .text-input__container {
+      width: 100%;
+    }
+    .text-inputinput, .mat-form-field {
       width: 100%;
       position: relative;
-    }
-
-    .search-input {
-
-      .search-btn {
-        border-radius: 40px;
-        min-width: 120px;
-        position: absolute;
-        padding: 8px;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: $btnBg;
-        color: $fontColorSecondary;
-        cursor: pointer;
-        border: none;
-        transition: all 0.25s;
-      }
-
-      .search-btn:hover {
-        box-shadow: $defaultHoverShadow;
-      }
     }
   }
 
@@ -80,7 +62,7 @@
 
   .mat-form-field-infix {
     padding: 5px 25px 15px 30px;
-    background: $whiteBg;
+    background: $white_2;
   }
 
   .mat-form-field-wrapper {

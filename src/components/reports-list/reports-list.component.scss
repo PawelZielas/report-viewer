@@ -1,10 +1,16 @@
-@import "colors";
-@import "variables";
+@import "../../assets/scss/base/colors";
+@import "../../assets/scss/base/variables";
 
 .reports-list__container {
-  background: $whiteBg;
+  background: $white_1;
   li {
     list-style: none;
+  }
+
+  .no-results {
+    padding: 30px;
+    text-align: center;
+    font-size: 1.25rem;
   }
 }
 

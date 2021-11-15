@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {MatSelectChange} from "@angular/material/select";
 import {SearchCriteria} from "./search.model";
 import {TagStatus} from "../tag/tag.model";
 
@@ -47,8 +46,8 @@ export class SearchControllerComponent {
     }
   }
 
-  updateDate(date: MatSelectChange): void {
-    this.searchCriteria = {...this.searchCriteria, selectedDateIndex: this.searchCriteria.dates.indexOf(date.value)};
+  updateDate(dateIndex: number): void {
+    this.searchCriteria = {...this.searchCriteria, selectedDateIndex: dateIndex};
     this.search();
   }
 

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {FileInfo} from "../../services/reports.dto";
 
 @Component({
   selector: 'efi-accordion',
@@ -8,14 +9,21 @@ import {Component, Input, OnInit} from '@angular/core';
 export class AccordionComponent implements OnInit {
 
   active: boolean = false;
-  @Input() items: any;
+  @Input() items: FileInfo[] | null;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
   toggleAccordion(): void {
-    this.active = !this.active;
+    if (this.active) {
+      setTimeout(() => {
+        this.active = !this.active;
+      }, 200);
+    } else {
+      this.active = !this.active;
+    }
   }
 }

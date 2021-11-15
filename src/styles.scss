@@ -1,11 +1,14 @@
 @import '~normalize.css';
 @import 'assets/scss/base/colors';
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import 'colors';
-@import 'variables';
+@import './assets/scss/base/colors';
+@import "./assets/scss/base/variables";
+@import "./assets/scss/base/typography";
+@import "./assets/scss/base/links";
+@import "./assets/scss/components/inputs";
+@import "./assets/scss/components/tag-tile";
+@import "./assets/scss/components/buttons";
 
 * {
-  font-family: Roboto, Monospaced, sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -20,26 +23,5 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px $whiteBg inset !important;
-}
-
-h1 {
-  transform: scaleY(1.2);
-  text-align: center;
-  line-height: 1.5;
-  font-size: 1.5rem;
-  letter-spacing: 10px;
-  font-weight: 400;
-  color: $primaryGrayCol;
-}
-
-h2 {
-  font-weight: 500;
-  font-size: 1.5rem;
-}
-
-.link {
-  color: $linkCol;
-  cursor: pointer;
-  font-weight: 500;
+  -webkit-box-shadow: 0 0 0 30px $white_2 inset !important;
 }

@@ -1,17 +1,17 @@
-@import "colors";
-// filters
+@import "./colors";
 
-$filterBorderActive: 1px solid $filterActiveBorderColor;
-$filterBorderInactive: 1px solid $filterInactiveBorderColor;
+// tag tile
+$tagBorder--active: 1px solid $tagBorderColor_active;
+$tagBorder--inactive: 1px solid $tagBorderColor_inactive;
 
-// common
-
-$defaultHoverShadow: 0 0 5px rgb(195, 195, 195);
+$tagBg--active: rgba(215, 255, 249, 0.21);
 
 // general
+$appContainerMaxWidth: 65%;
 
-$appMaxWidth: 65%;
+// common
+$hoverShadow--default: 0 0 5px rgb(195, 195, 195);
+
 
 // list item
-
-$reportListItemSeparator:  1px solid $primaryGrayCol;
+$reportListItemSeparator:  1px solid $white_2;

@@ -12,12 +12,12 @@
     <h2>{{reportItem.title}}</h2>
     <p>{{reportItem.description}}</p>
     <div class="item-value__actions" *ngIf="reportItem.files?.length !== 0">
-      <div class="item-value__action__view-details">
-        <p class="link">Zobacz raport</p>
-      </div>
-      <div class="test">
+      <span class="item-value__action__view-details">
+        <a><p class="link">Zobacz raport</p></a>
+      </span>
+      <span class="accordion">
         <efi-accordion [items]="reportItem.files"></efi-accordion>
-      </div>
+      </span>
     </div>
   </div>
 </div>

@@ -74,7 +74,6 @@ export class ReportsComponent implements OnInit, OnDestroy {
       dates,
       tags: categories,
       phrase: '',
-      placeholder: 'Podaj nazwę lub numer raportu',
     }
   }
 

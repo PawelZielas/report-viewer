@@ -1,11 +1,11 @@
 @import "colors";
 
-@mixin  flxCenter {
+@mixin  flex--center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin inputShadow($blur: 10px) {
-  box-shadow: 0 0 $blur 0 $primaryGrayCol;
+@mixin inputShadow($blur-size: 10px, $blur-color: $gray_1) {
+  box-shadow: 0 0 $blur-size 0 $blur-color;
 }

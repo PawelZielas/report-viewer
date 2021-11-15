@@ -1,13 +1,13 @@
-@import 'colors';
-@import 'variables';
-@import 'mixins';
+@import '../../assets/scss/base/colors';
+@import '../../assets/scss/base/variables';
+@import '../../assets/scss/base/mixins';
 
 .tag__container {
   display: flex;
   padding: 10px 20px 10px 10px;
-  border: $filterBorderInactive;
-  background: $filterInactiveBg;
-  color: $primaryGrayCol;
+  border: $tagBorder--inactive;
+  background: $white_1;
+  color: $gray_1;
   border-radius: 6px;
   position: relative;
   margin-right: 15px;
@@ -19,7 +19,6 @@
     line-height: 1;
     font-weight: 500;
     user-select: none;
-
   }
 
   span {
@@ -29,20 +28,21 @@
     width: 30px;
     height: 100%;
     cursor: pointer;
-    @include flxCenter();
+    @include flex--center();
     transition: all 0.3s;
   }
+
   span:hover {
     transform: scale(1.05);
   }
 }
 
 .tag__container:hover {
-  box-shadow: $defaultHoverShadow;
+  box-shadow: $hoverShadow--default;
 }
 
 .active {
-  background: $filterActiveBg;
-  border: $filterBorderActive;
+  background: $tagBg--active;
+  border: $tagBorder--active;
   color: $fontColorPrimary;
 }

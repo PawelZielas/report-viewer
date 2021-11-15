@@ -1,56 +1,66 @@
-@import "colors";
+@import "../../assets/scss/base/colors";
+@import "../../assets/scss/base/mixins";
 
 .accordion__container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 
-  .accordion {
+  button {
+    border: none;
+    background: none;
     display: flex;
     align-items: center;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    transition: 0.4s;
-    background: none;
+    gap: 10px;
+    margin: 10px 10px 10px 0;
+
+    .expand-chevron {
+      cursor: pointer;
+      transition: all 0.25s;
+      transform: rotate(180deg);
+      color: $primaryBlue_light;
+    }
   }
 
-  img {
-    transition: all 0.10s;
-    color: $linkCol;
-    transform: rotate(180deg);
-  }
-
-  span {
-    display: block;
-    width: 100%;
+  .accordion-underline {
+    transition: max-width 0.5s;
+    height: 1px;
+    max-width: 0;
+    background: $white_2;
   }
 
   .expansion-panel {
-    span {
-      margin: 5px 0;
-    }
-  }
+    transition: all 0.25s ease-out;
+    position: relative;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    max-height: 0;
+    display: flex;
+    flex-direction: column;
 
-  .hidden {
-    .expansion-panel {
-      height: 0;
-      opacity: 0;
-    }
-  }
-
-  .visible {
-    .expansion-panel {
-      height: 100%;
-      opacity: 1;
-      background: mediumpurple;
-    }
-    img {
-      transform: rotate(180deg);
+    .file-link {
+      padding: 10px 0;
     }
   }
 
 }
-.visible {
-  img {
-    transform: rotate(360deg);
+
+.accordion__container.visible {
+
+  button {
+
+    .expand-chevron {
+      transform: rotate(360deg);
+    }
+  }
+
+  .accordion-underline {
+    max-width: 300px;
+  }
+
+  .expansion-panel {
+    max-height: 500px;
+    opacity: 1;
   }
 }

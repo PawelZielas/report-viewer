@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewEncapsulation} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {TagStatus} from "./tag.model";
 
@@ -10,7 +10,7 @@ import {TagStatus} from "./tag.model";
 })
 export class TagComponent {
 
-  closeIcon = faTimes;
+  xIcon = faTimes;
   @Input() tag: TagStatus;
   @Output() tagStateChange: EventEmitter<TagStatus> = new EventEmitter<TagStatus>();
 

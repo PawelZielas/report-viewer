@@ -1,0 +1,20 @@
+@import '../base/colors';
+
+.primary-btn {
+  border-radius: 40px;
+  min-width: 120px;
+  position: absolute;
+  padding: 8px;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: $primaryBlue_light;
+  color: $fontColorSecondary;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s;
+}
+
+.primary-btn:hover {
+  box-shadow: $hoverShadow--default;
+}

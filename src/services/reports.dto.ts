@@ -1,4 +1,4 @@
-export interface File {
+export interface FileInfo {
   filename: string,
   filesize: number
 }
@@ -8,5 +8,5 @@ export interface ReportsData {
   category: string;
   title: string;
   description: string;
-  files: File[];
+  files: FileInfo[];
 }

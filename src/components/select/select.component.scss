@@ -1,39 +1,70 @@
 @import "../../assets/scss/base/colors";
 @import "../../assets/scss/base/mixins";
+@import "../../assets/scss/base/variables";
+
 
 .select__container {
-  position: relative;
-  margin-right: 40px;
-  @include inputShadow();
+  width: 100%;
+  height: 100%;
 
-  select {
-    padding: 20px 30px;
-    font-size: 14px;
-    color: $fontColorPrimary;
-    background: $whiteBg;
-    box-shadow: none;
-    border: none;
-    outline: none;
+  .select__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px 15px 15px;
+
+    span {
+      display: inline-block;
+    }
+
+    .select__label > span:first-child {
+      margin-right: auto;
+    }
+
+    .select__expand-icon {
+    }
+
+    .selected__item {
+      min-width: 70px;
+    }
+
+    .expand-chevron {
+      transition: all 0.3s;
+    }
   }
 
-  option {
-    padding: 10px 20px;
-    height: 2rem;
-  }
-
-  .custom-arrow {
+  .select__options__container {
+    border: $tagBorder--active;
+    transition: max-height, opacity 0.3s;
     position: absolute;
-    right: 0;
-    top: 0;
-    width: 40px;
-    height: 100%;
-    @include flxCenter();
-    pointer-events: none;
-    background-color: $whiteBg;
+    max-height: 0;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: +1;
+
+    .select-option {
+      min-width: 150px;
+      background: $white_1;
+      padding: 15px 30px;
+    }
+
+    .select-option:hover {
+      box-shadow: inset 0 0 1px 1px $primaryBlue_light;
+    }
+  }
+}
+
+.select__container.expanded {
+  .select__options__container {
+    opacity: 1;
+    max-height: 50px;
+  }
+
+  .expand-chevron {
+    transform: rotate(-180deg);
   }
 }
 
 fa-icon {
-  color: $linkCol;
 }
-

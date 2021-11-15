@@ -1,7 +1,13 @@
 <div class="reports-list__container">
-   <ul>
+   <ul *ngIf="reportsList?.length !== 0; else noReportsMatchSearchCriteria">
      <li *ngFor="let report of reportsList">
        <efi-reports-item [reportItem]="report"></efi-reports-item>
      </li>
    </ul>
 </div>
+
+<ng-template #noReportsMatchSearchCriteria>
+  <div>
+    <h1 class="no-results">Brak wyników spełniających kryteria.</h1>
+  </div>
+</ng-template>

@@ -6,6 +6,10 @@
   width: 100%;
   grid-template-columns: 20% 1fr 20%;
 
+  img {
+    cursor: pointer;
+  }
+
   h1 {
     margin: 0;
   }

@@ -1,9 +1,13 @@
 <div class="accordion__container" [ngClass]="active ? 'visible' : 'hidden'">
   <button class="accordion link" (click)="toggleAccordion()">Pliki do pobrania
-    <span *ngIf="items?.length !== 0">({{items.length}})</span>
-    <img src="../../assets/icons/chevron-down.svg" alt="expand-icon">
+    <span *ngIf="items?.length !== 0">({{items?.length}})</span>
+    <img
+      class="expand-chevron"
+      src="../../assets/icons/chevron-down.svg"
+      alt="expand-icon">
   </button>
-  <div *ngIf="active" class="expansion-panel" >
-    <span class="link" *ngFor="let item of items">{{item.filename}} ({{item.filesize}}kB)</span>
+  <span class="accordion-underline"></span>
+  <div class="expansion-panel">
+    <span class="file-link link" *ngFor="let item of items">{{item.filename}} ({{item.filesize}}kB)</span>
   </div>
 </div>
